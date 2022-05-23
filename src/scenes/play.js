@@ -1,16 +1,20 @@
+var player;
+var stars;
+var bombs;
+var platforms;
+var cursors;
+var score = 0;
+var gameOver = false;
+var scoreText;
+
 // Clase Play, donde se crean todos los sprites, el escenario del juego y se inicializa y actualiza toda la logica del juego.
-class Play extends Phaser.Scene {
+export class Play extends Phaser.Scene {
     constructor() {
         // Se asigna una key para despues poder llamar a la escena
         super("Play")
     }
 
     create() {
-        // Se inicializan estas variables globales para que cada vez que se cargue la escena
-        // no guarde los datos de la anterior (Si perdes, se reinician los puntos)
-        score = 0;
-        gameOver = false;
-
         //  A simple background for our game
         this.add.image(400, 300, 'sky');
 
@@ -155,7 +159,7 @@ class Play extends Phaser.Scene {
 
         // Función timeout usada para llamar la instrucción que tiene adentro despues de X milisegundos
         setTimeout(() => {
-            this.scene.start('Retry'); // Instrucción que sera llamada despues del segundo
+            this.scene.start('Retry', {score: score}); // Instrucción que sera llamada despues del segundo
         }, 1000); // Ese número es la cantidad de milisegundos
     }
 }

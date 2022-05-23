@@ -1,3 +1,8 @@
+import {Preloads} from '../scenes/preloads.js'
+import {MainMenu} from '../scenes/mainmenu.js'
+import {Play} from '../scenes/play.js'
+import {Retry} from '../scenes/retry.js'
+
 var config = {
     type: Phaser.AUTO,
     width: 800,
@@ -24,14 +29,5 @@ var config = {
     scene: [Preloads, MainMenu, Play, Retry] // Listado de todas las escenas del juego, en orden
                                              // La primera escena es con la cual empieza el juego
 };
-
-var player;
-var stars;
-var bombs;
-var platforms;
-var cursors;
-var score = 0;
-var gameOver = false;
-var scoreText;
 
 var game = new Phaser.Game(config);
