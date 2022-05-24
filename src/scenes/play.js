@@ -16,6 +16,8 @@ export class Play extends Phaser.Scene {
   }
 
   create() {
+    // Reiniciamos el GameOver para que el jugador pueda moverse libremente
+    gameOver = false;
     //  A simple background for our game
     this.add.image(400, 300, "sky");
 
